@@ -145,10 +145,30 @@ void part2() {
 	}
 }
 
+i32 predictor(i32 noun, i32 verb) {
+	return (243000*noun + verb + 250702);
+}
+
+void part11() {
+	printf("result = %d\n", predictor(12, 2));
+}
+
+void part22() {
+	i32 goal = 19690720;
+	// 243000*noun + verb = 19690720 - 250702;
+	i32 verb = (19690720 - 250702)%243000;
+	i32 noun = (19690720 - 250702)/243000;
+	printf("ans = %d\n", 100*noun+verb);
+}
+
 int main(int argc, char const *argv[]) {
 
 	test();
+	
 	part1();
 	part2();
+
+	part11();
+	part22();
 	return 0;
 }
